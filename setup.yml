@@ -15,14 +15,14 @@
      shell: "unlink /etc/systemd/system/default.target & ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target"
    
    - name: Set hostname
-     hostname: name="{{ inventory_hostname }}"
+     hostname: name="{{ ansible_ssh_host }}"
      notify:
       - Restart server
       - Wait for server to restart
 
   handlers:
    - name: Restart server
-     command: shutdown -r now "Reboot triggered by Ansible"
+     command: reboot
      async: 0
      poll: 0
      ignore_errors: true
@@ -30,7 +30,7 @@
    - name: Wait for server to restart
      local_action:
       module: wait_for
-       host= "{{ inventory_hostname }}"
+       host= "{{ ansible_ssh_host }}"
        port=22
        delay=1
        timeout=300
