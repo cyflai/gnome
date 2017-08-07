@@ -3,7 +3,7 @@
 
   tasks:
    - name: install gnome x windows
-     yum: state=present name={{ item }} update_cache=yes
+     yum: state=latest name={{ item }} update_cache=yes
      with_items:
      - "@X Window System"
      - "gnome-classic-session"
