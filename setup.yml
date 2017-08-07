@@ -6,18 +6,16 @@
      yum: state=present name={{ item }} update_cache=yes
      with_items:
      - "@X Window System"
-     - gnome-classic-session 
-     - gnome-terminal 
-     - nautilus-open-terminal 
-     - control-center 
-     - liberation-mono-fonts
+     - "gnome-classic-session"
+     - "gnome-terminal"
+     - "nautilus-open-terminal"
+     - "control-center"
+     - "liberation-mono-fonts"
      
    - name: unlink
      shell: unlink /etc/systemd/system/default.target
-   
-   - name:
-     shell: ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
-     shell: reboot
+     shell: "ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target"
+     shell: "reboot"
      async: 0
      poll: 0
    
