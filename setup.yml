@@ -15,7 +15,7 @@
      shell: "unlink /etc/systemd/system/default.target & ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target"
    
    - name: Set hostname
-     hostname: name=somename
+     hostname: {{ inventory_hostname }}
       notify:
        - Restart server
        - Wait for server to restart
