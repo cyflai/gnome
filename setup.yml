@@ -25,6 +25,6 @@
       port: 22
       host: '{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}'
       search_regex: OpenSSH
-     delay: 10
-    connection: local
+      delay: 10
+     connection: local
 
