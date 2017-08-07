@@ -32,5 +32,5 @@
       module: wait_for
        host= "{{ ansible_ssh_host }}"
        port=22
-       delay=1
+       delay=10
        timeout=300
