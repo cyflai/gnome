@@ -16,9 +16,9 @@
    
    - name: Set hostname
      hostname: {{ inventory_hostname }}
-      notify:
-       - Restart server
-       - Wait for server to restart
+     notify:
+      - Restart server
+      - Wait for server to restart
 
   handlers:
    - name: Restart server
