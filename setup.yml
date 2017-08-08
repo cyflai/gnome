@@ -15,7 +15,7 @@
      - "liberation-mono-fonts"
      
   - name: unlink
-    shell: "unlink /etc/systemd/system/default.target
+    shell: "unlink /etc/systemd/system/default.target"
   
   - name: ln default target
     shell: "ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target"
