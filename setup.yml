@@ -18,7 +18,7 @@
     shell: "unlink /etc/systemd/system/default.target & ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target"
    
   - name: reboot
-    shell: reboot
+    command: reboot
     async: 0
     poll: 0
     ignore_errors: true
