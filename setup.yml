@@ -4,7 +4,7 @@
   tasks:
   
   - name: install x windows
-    yum: state=latest name="@X Window System" update_cache=yes
+    yum: state=latest name="@^X Window System" update_cache=yes
   
   - name: install gnome desktop
     yum: state=latest name={{ item }} update_cache=yes
@@ -14,11 +14,11 @@
      - "control-center"
      - "liberation-mono-fonts"
      
-  #- name: unlink
-  #  shell: "unlink /etc/systemd/system/default.target
+  - name: unlink
+    shell: "unlink /etc/systemd/system/default.target
     
-  #- name: ln default.target 
-  #  shell: "ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target"
+  - name: ln default.target 
+    shell: "ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target"
    
   - name: reboot
     command: /sbin/shutdown -r 0
