@@ -2,10 +2,13 @@
 - hosts: all
 
   tasks:
-   - name: install gnome x windows
+  
+  - name: install x windows
+     yum: state=latest name="@X Window System" update_cache=yes
+  
+  - name: install gnome desktop
      yum: state=latest name={{ item }} update_cache=yes
      with_items:
-     - "@X Window System"
      - "gnome-classic-session"
      - "gnome-terminal"
      - "control-center"
@@ -15,7 +18,7 @@
      shell: "unlink /etc/systemd/system/default.target & ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target"
    
    - name: reboot
-     command: /sbin/shutdown -r -t now
+     shell: reboot
      async: 0
      poll: 0
      ignore_errors: true
